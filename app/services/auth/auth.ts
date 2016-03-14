@@ -1,7 +1,8 @@
-import {Storage, LocalStorage} from 'ionic-angular';
+import {Storage, LocalStorage, NavController} from 'ionic-angular';
 import {AuthHttp, JwtHelper, tokenNotExpired} from 'angular2-jwt';
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
+import {TabsPage} from '../../pages/tabs/tabs';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -15,7 +16,6 @@ export class AuthService {
     user: Object;
 
     constructor(private authHttp: AuthHttp) {
-        // If there is a profile saved in local storage
         let profile = this.local.get('profile')._result;
         if (profile) {
             this.user = JSON.parse(profile);
@@ -25,29 +25,6 @@ export class AuthService {
     public authenticated() {
         // Check if there's an unexpired JWT
         return tokenNotExpired();
-    }
-
-    public login() {
-        // Show the Auth0 Lock widget
-
-        this.lock.show({
-            authParams: {
-                scope: 'openid offline_access',
-                device: 'Mobile device'
-            }
-        }, (err, profile, token, accessToken, state, refreshToken) => {
-            if (err) {
-                alert(err);
-            }
-            // If authentication is successful, save the items
-            // in local storage
-            this.local.set('profile', JSON.stringify(profile));
-            this.local.set('id_token', token);
-            this.local.set('refresh_token', refreshToken);
-            this.user = profile;
-            // Schedule a token refresh
-            this.scheduleRefresh();
-        });
     }
 
     public logout() {

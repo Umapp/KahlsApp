@@ -3,7 +3,8 @@
         white-space: normal;
     }
     .completed{
-        background-color: $list-background-completed;
+        border-left:7px solid;
+        border-color: #3D1E00;
         //color:white;
     }
     p{

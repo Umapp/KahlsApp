@@ -1,4 +1,4 @@
-<ion-navbar *navbar>
+<ion-navbar primary *navbar>
     <ion-title>Rutiner</ion-title>
 </ion-navbar>
 
@@ -29,7 +29,7 @@
                     <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
                 </ion-label>
 
-                <button secondary item-right (click)="doConfirm(obj)" [hidden]="obj.completedBy">Klar
+                <button secondary outline item-right (click)="doConfirm(obj)" [hidden]="obj.completedBy">Klar
                     <ion-icon name="checkmark"></ion-icon>
                 </button>
 
@@ -48,7 +48,7 @@
                     <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
 
                 </ion-label>
-                <button secondary item-right (click)="doConfirm(obj)">Klar
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
                     <ion-icon name="checkmark"></ion-icon>
                 </button>
             </ion-item>
@@ -59,7 +59,7 @@
                     <br>
                     <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
                 </ion-label>
-                <button secondary item-right (click)="doConfirm(obj)">Klar
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
                     <ion-icon name="checkmark"></ion-icon>
                 </button>
             </ion-item>
@@ -76,7 +76,7 @@
                     <br>
                     <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
                 </ion-label>
-                <button secondary item-right (click)="doConfirm(obj)">Klar
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
                     <ion-icon name="checkmark"></ion-icon>
                 </button>
             </ion-item>

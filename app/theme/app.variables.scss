@@ -19,7 +19,7 @@
 // The "primary" color is the only required color in the map.
 // Both iOS and MD colors can be further customized if colors
 // are different per mode.
-
+/*
 $colors: (
   primary:    #2274A5,
   secondary:  #32936F,
@@ -28,7 +28,22 @@ $colors: (
   dark:       #222,
   favorite:   #69BB7B
 );
+*/
+
+$colors: (
+  //RÖD
+  primary:    #DA0C3D,
+  //SVART
+  dark:  #000000,
+  //BRUN
+  secondary: #3D1E00,
+  beige: #F0E1C2
+);
+
+$beige: #F0E1C2;
 
 
 
-$list-background-completed: #9EE37D;
+
+
+$list-background-completed: #F0E1C2;
