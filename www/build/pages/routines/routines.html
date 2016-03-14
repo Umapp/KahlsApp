@@ -1,0 +1,85 @@
+<ion-navbar primary *navbar>
+    <ion-title>Rutiner</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="routines">
+    <ion-segment [(ngModel)]="routineTab">
+        <ion-segment-button value="morning">
+            Morgon
+        </ion-segment-button>
+        <ion-segment-button value="duringDay">
+            Under dagen
+        </ion-segment-button>
+        <ion-segment-button value="close">
+            Stängning
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="routineTab">
+        <ion-list *ngSwitchWhen="'morning'">
+            <ion-list-header>
+                Morgon
+            </ion-list-header>
+            <ion-item *ngFor="#obj of routines | filter:'occurence':'Morgon'" [ngClass]="{completed:obj.completedTime}">
+                <ion-label>
+                    <h2>{{obj.category}}</h2>
+                    <p>{{obj.title}}</p>
+                    <br>
+                    <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
+                </ion-label>
+
+                <button secondary outline item-right (click)="doConfirm(obj)" [hidden]="obj.completedBy">Klar
+                    <ion-icon name="checkmark"></ion-icon>
+                </button>
+
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchWhen="'duringDay'">
+            <ion-list-header>
+                Under dagen
+            </ion-list-header>
+            <ion-item *ngFor="#obj of routines  | filter:'occurence':'Varje dag'">
+                <ion-label>
+                    <h2>{{obj.category}}</h2>
+                    <p>{{obj.title}}</p>
+                    <br>
+                    <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
+
+                </ion-label>
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
+                    <ion-icon name="checkmark"></ion-icon>
+                </button>
+            </ion-item>
+            <ion-item *ngFor="#obj of routines  | filter:'occurence':''">
+                <ion-label>
+                    <h2>{{obj.category}}</h2>
+                    <p>{{obj.title}}</p>
+                    <br>
+                    <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
+                </ion-label>
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
+                    <ion-icon name="checkmark"></ion-icon>
+                </button>
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchWhen="'close'">
+            <ion-list-header>
+                Stängning
+            </ion-list-header>
+            <ion-item *ngFor="#obj of routines | filter:'occurence':'Stängning'">
+                <ion-label>
+                    <h2>{{obj.category}}</h2>
+                    <p>{{obj.title}}</p>
+                    <br>
+                    <p><b>Klar:</b> {{obj.completedTime}} - {{obj.completedBy}}</p>
+                </ion-label>
+                <button secondary outline item-right (click)="doConfirm(obj)">Klar
+                    <ion-icon name="checkmark"></ion-icon>
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

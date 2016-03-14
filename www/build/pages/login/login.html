@@ -1,0 +1,25 @@
+<ion-navbar primary *navbar>
+    <ion-title>Login</ion-title>
+</ion-navbar>
+
+<ion-content padding *ngIf="!auth.authenticated()">
+
+    <button block (click)="login()">Login</button>
+
+</ion-content>
+
+<ion-content padding *ngIf="auth.authenticated()">
+    <ion-card>
+
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="">
+            </ion-avatar>
+            <h2>{{ user.nickname }}</h2>
+            <p>{{ user.email }}</p>
+        </ion-item>
+    </ion-card>
+
+    <button block (click)="logout()">Logout</button>
+
+</ion-content>
