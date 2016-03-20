@@ -27,19 +27,21 @@ import {Type} from 'angular2/core';
         AuthService]
 })
 export class MyApp {
-    rootPage: Type;
+    rootPage: Type = TabsPage;
     //rootPage: Type = this.isAuth ? TabsPage : LoginPage;
 
     constructor(platform: Platform, private authHttp: AuthHttp, private auth: AuthService) {
-        this.auth.startupTokenRefresh();
+
+        /*
         if (auth.authenticated()) {
             this.rootPage = TabsPage;
         }
         else {
             this.rootPage = LoginPage;
         }
+        */
         platform.ready().then(() => {
-
+            this.auth.startupTokenRefresh();
         });
     }
 }

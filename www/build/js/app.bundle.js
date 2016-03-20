@@ -3189,23 +3189,26 @@
 	var http_2 = __webpack_require__(145);
 	var core_1 = __webpack_require__(7);
 	var tabs_1 = __webpack_require__(361);
-	var login_1 = __webpack_require__(598);
 	var routine_service_1 = __webpack_require__(363);
 	var angular2_jwt_1 = __webpack_require__(596);
 	var auth_1 = __webpack_require__(595);
 	var MyApp = (function () {
 	    //rootPage: Type = this.isAuth ? TabsPage : LoginPage;
 	    function MyApp(platform, authHttp, auth) {
+	        var _this = this;
 	        this.authHttp = authHttp;
 	        this.auth = auth;
-	        this.auth.startupTokenRefresh();
+	        this.rootPage = tabs_1.TabsPage;
+	        /*
 	        if (auth.authenticated()) {
-	            this.rootPage = tabs_1.TabsPage;
+	            this.rootPage = TabsPage;
 	        }
 	        else {
-	            this.rootPage = login_1.LoginPage;
+	            this.rootPage = LoginPage;
 	        }
+	        */
 	        platform.ready().then(function () {
+	            _this.auth.startupTokenRefresh();
 	        });
 	    }
 	    MyApp = __decorate([
